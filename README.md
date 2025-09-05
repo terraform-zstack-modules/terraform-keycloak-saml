@@ -6,6 +6,8 @@
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
 | <a name="requirement_keycloak"></a> [keycloak](#requirement\_keycloak) | 5.4.0 |
 
+注意：创建好后请在keycloak->zstack_saml->Client scopes->role_list->Mappers->role list->Single Role Attribute 开启,否则会报登录失败
+
 ## Providers
 
 | Name | Version |
