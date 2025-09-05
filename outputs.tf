@@ -32,11 +32,16 @@ output "walrus_resource_id" {
   description = "The id of resource where deployed in Walrus."
 }
 
-#
-# Submodule output
-#
+output "client_info" {
+  value = keycloak_saml_client.saml_client_zstack
+}
 
-output "submodule" {
-  value       = module.submodule.message
-  description = "The message from submodule."
+output "saml_metadata_url" {
+  value = "${var.keycloak_url}/realms/zstack_saml/protocol/saml/descriptor"
+  description = "可以把这个metadata直接给到cloud saml认证"
+}
+
+output "url" {
+  value = "${var.keycloak_url}/admin/master/console/#/zstack_saml"
+  description = "管理keycloak，设置client scopes"
 }
