@@ -1,10 +1,70 @@
 openapi: 3.0.3
 info:
-  title: OpenAPI schema for template walrus-template-template
+  title: OpenAPI schema for template .
 components:
   schemas:
     variables:
       type: object
+      required:
+      - base_url
+      - keycloak_password
+      - keycloak_url
+      - master_saml_processing_url
+      - sam_client_id
+      - valid_redirect_uris
+      properties:
+        sam_client_id:
+          title: Sam Client Id
+          type: string
+          description: 格式为http://Cloud_MN_IP:8080/zstack/sso/saml2/sp
+          x-walrus-ui:
+            group: Basic
+            order: 2
+        base_url:
+          title: Base Url
+          type: string
+          description: Cloud 接口 URL
+          x-walrus-ui:
+            group: Basic
+            order: 3
+        valid_redirect_uris:
+          title: Valid Redirect Uris
+          type: string
+          description: Cloud 接口 URL/*
+          x-walrus-ui:
+            group: Basic
+            order: 4
+        master_saml_processing_url:
+          title: Master Saml Processing Url
+          type: string
+          description: http://Cloud_MN_IP:8080/zstack/sso/saml2/acs
+          x-walrus-ui:
+            group: Basic
+            order: 5
+        keycloak_url:
+          title: Keycloak Url
+          type: string
+          description: keycloak url
+          x-walrus-ui:
+            group: Basic
+            order: 6
+        keycloak_admin:
+          title: Keycloak Admin
+          type: string
+          description: keycloak 管理员账号，默认为admin
+          default: admin
+          x-walrus-ui:
+            group: Basic
+            order: 7
+        keycloak_password:
+          title: Keycloak Password
+          type: string
+          description: keycloak 管理员密码
+          format: password
+          writeOnly: true
+          x-walrus-ui:
+            group: Basic
+            order: 8
       x-walrus-ui:
         groupOrder:
         - Basic
